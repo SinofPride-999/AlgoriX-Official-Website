@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team - AlgoriX Careers</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse the same styles from main page */
+        :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #7b00ff;
+            --bg-color: #050924;
+            --text-color: #ffffff;
+            --accent-color: #ff006a;
+            --card-bg: rgba(13, 25, 65, 0.6);
+            --transition-time: 0.5s;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --max-content-width: 1440px;
+        }
+
+        .dark-mode {
+            --primary-color: #00f7ff;
+            --secondary-color: #7b00ff;
+            --bg-color: #050924;
+            --text-color: #ffffff;
+            --accent-color: #ff006a;
+            --card-bg: rgba(13, 25, 65, 0.6);
+        }
+
+        .light-mode {
+            --primary-color: #0094a3;
+            --secondary-color: #5900b3;
+            --bg-color: #e9f1ff;
+            --text-color: #050924;
+            --accent-color: #cc0055;
+            --card-bg: rgba(222, 233, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color var(--transition-time), color var(--transition-time);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Loading screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-letters {
+            display: inline-block;
+            margin: 0;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+        }
+
+        .loading-letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: loadingAnim 0.5s ease-out forwards;
+        }
+
+        .loading-letter:nth-child(1) { animation-delay: 0.1s; color: var(--primary-color); }
+        .loading-letter:nth-child(2) { animation-delay: 0.2s; color: var(--secondary-color); }
+        .loading-letter:nth-child(3) { animation-delay: 0.3s; color: var(--primary-color); }
+        .loading-letter:nth-child(4) { animation-delay: 0.4s; color: var(--accent-color); }
+        .loading-letter:nth-child(5) { animation-delay: 0.5s; color: var(--secondary-color); }
+        .loading-letter:nth-child(6) { animation-delay: 0.6s; color: var(--primary-color); }
+        .loading-letter:nth-child(7) { animation-delay: 0.7s; color: var(--accent-color); }
+        .loading-letter:nth-child(8) { animation-delay: 0.8s; color: var(--secondary-color); }
+
+        @keyframes loadingAnim {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loading-progress {
+            width: min(80%, 300px);
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .loading-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            animation: progressAnim 2s ease-out forwards;
+        }
+
+        @keyframes progressAnim {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Header */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: rgba(5, 9, 36, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode header {
+            background: rgba(233, 241, 255, 0.8);
+        }
+
+        .header-scrolled {
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.1);
+            padding: 10px 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.5em;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .logo span {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a:hover:before {
+            width: 100%;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(90deg, #050924, #2c3e80);
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .light-mode .theme-toggle {
+            background: linear-gradient(90deg, #9eb8ff, #e9f1ff);
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            z-index: 1;
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            left: 3px;
+            transition: transform 0.3s ease;
+        }
+
+        .light-mode .toggle-thumb {
+            transform: translateX(30px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Particles background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Main content */
+        .main-container {
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 120px 5% 80px;
+        }
+
+        /* Recruitment section */
+        .recruitment-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .recruitment-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .recruitment-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        /* Job positions */
+        .job-positions {
+            margin-bottom: 60px;
+        }
+
+        .job-positions h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2);
+        }
+
+        .job-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .job-card .department {
+            display: inline-block;
+            background: rgba(0, 247, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .job-card p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .job-card .details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .job-card .details span {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .job-card .details i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+
+        /* Application form */
+        .application-form {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .application-form h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .form-control {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 148, 163, 0.2);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .submit-btn {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.5);
+        }
+
+        .file-input-container {
+        position: relative;
+        margin-bottom: 25px;
+    }
+
+    /* Hide the default file input */
+    .file-input-container input[type="file"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    /* Style the custom file input button */
+    .file-input-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(0, 247, 255, 0.2);
+        border-radius: 5px;
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .light-mode .file-input-label {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 148, 163, 0.2);
+    }
+
+    .file-input-label:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+    }
+
+    .file-input-label i {
+        color: var(--primary-color);
+        margin-right: 10px;
+    }
+
+    .file-input-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+    }
+
+    .file-input-button {
+        background: rgba(0, 247, 255, 0.1);
+        color: var(--primary-color);
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .file-input-label:hover .file-input-button {
+        background: var(--primary-color);
+        color: var(--bg-color);
+    }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1 class="loading-letters">
+                <span class="loading-letter">A</span>
+                <span class="loading-letter">l</span>
+                <span class="loading-letter">g</span>
+                <span class="loading-letter">o</span>
+                <span class="loading-letter">r</span>
+                <span class="loading-letter">i</span>
+                <span class="loading-letter">X</span>
+            </h1>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Particles -->
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⟁</span>
+            <span>Algori<span style="color: var(--accent-color)">X</span></span>
+        </a>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="recruit.html" class="active">Jobs</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="toggle-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="toggle-icon fas fa-sun" aria-hidden="true"></i>
+                <i class="toggle-icon fas fa-moon" aria-hidden="true"></i>
+                <span class="toggle-thumb"></span>
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <section class="recruitment-hero">
+            <h1>Join the AlgoriX Team</h1>
+            <p>We're looking for brilliant minds to help us push the boundaries of space technology. Be part of our mission to solve tomorrow's problems today.</p>
+        </section>
+
+        <section class="job-positions">
+            <h2>Current Openings</h2>
+            <div class="job-grid">
+                <div class="job-card">
+                    <h3>Quantum Computing Engineer</h3>
+                    <span class="department">Research & Development</span>
+                    <p>Develop quantum algorithms and implement them on our quantum computing platforms to solve complex spatial problems.</p>
+                    <div class="details">
+                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h3>Space Systems Architect</h3>
+                    <span class="department">Engineering</span>
+                    <p>Design and oversee the implementation of our orbital deployment systems and space-based platforms.</p>
+                    <div class="details">
+                        <span><i class="fas fa-map-marker-alt"></i> Neo City HQ</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h3>AI Research Scientist</h3>
+                    <span class="department">Artificial Intelligence</span>
+                    <p>Advance our neural network capabilities and develop new machine learning models for spatial analytics.</p>
+                    <div class="details">
+                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="application-section">
+            <div class="application-form">
+                <h2>Application Form</h2>
+                <form id="career-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">Position Applying For</label>
+                        <select id="position" class="form-control" required>
+                            <option value="">Select a position</option>
+                            <option style="color: black;" value="quantum">Quantum Computing Engineer</option>
+                            <option style="color: black;" value="systems">Space Systems Architect</option>
+                            <option style="color: black;" value="ai">AI Research Scientist</option>
+                            <option style="color: black;" value="other">Other (specify in cover letter)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group file-input-container">
+                        <label for="resume">Upload Resume/CV</label>
+                        <label class="file-input-label" id="file-input-label">
+                            <i class="fas fa-file-upload"></i>
+                            <span class="file-input-text" id="file-name">No file selected</span>
+                            <span class="file-input-button">Choose File</span>
+                            <input type="file" id="resume" class="form-control" accept=".pdf,.doc,.docx" required>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cover-letter">Cover Letter</label>
+                        <textarea id="cover-letter" class="form-control" placeholder="Tell us why you'd be a great fit for this position..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio/LinkedIn/GitHub (Optional)</label>
+                        <input type="url" id="portfolio" class="form-control" placeholder="https://">
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="recruit.js"></script>
+</body>
+</html>

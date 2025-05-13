@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AlgoriX provides cutting-edge space technology solutions with quantum computing, spatial analytics, and neural networks for forward-thinking enterprises.">
+    <meta name="keywords" content="space technology, quantum computing, spatial analytics, neural networks, orbital deployment">
+    <meta name="author" content="AlgoriX Technologies">
+    <meta property="og:title" content="AlgoriX - Frontier Tech Solutions for the Future">
+    <meta property="og:description" content="Advanced space technology solutions transforming industries and pushing boundaries of what's possible.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://algorix.tech">
+    <title>AlgoriX - Frontier Space Technology Solutions</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <style>
+        :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #7b00ff;
+            --bg-color: #050924;
+            --text-color: #ffffff;
+            --accent-color: #ff006a;
+            --card-bg: rgba(13, 25, 65, 0.6);
+            --transition-time: 0.5s;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --max-content-width: 1440px;
+        }
+
+        .dark-mode {
+            --primary-color: #00f7ff;
+            --secondary-color: #7b00ff;
+            --bg-color: #050924;
+            --text-color: #ffffff;
+            --accent-color: #ff006a;
+            --card-bg: rgba(13, 25, 65, 0.6);
+        }
+
+        .light-mode {
+            --primary-color: #0094a3;
+            --secondary-color: #5900b3;
+            --bg-color: #e9f1ff;
+            --text-color: #050924;
+            --accent-color: #cc0055;
+            --card-bg: rgba(222, 233, 255, 0.8);
+        }
+
+        /* Dark Mode Particles */
+        .dark-mode #particles-js {
+            --particle-color: #00f7ff;
+            --particle-line-color: rgba(0, 247, 255, 0.3);
+        }
+
+        /* Light Mode Particles - More visible colors */
+        .light-mode #particles-js {
+            --particle-color: #0077ff;
+            --particle-line-color: rgba(0, 119, 255, 0.4);
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <!-- Skip to content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1 class="loading-letters">
+                <span class="loading-letter">A</span>
+                <span class="loading-letter">l</span>
+                <span class="loading-letter">g</span>
+                <span class="loading-letter">o</span>
+                <span class="loading-letter">r</span>
+                <span class="loading-letter">i</span>
+                <span class="loading-letter">X</span>
+            </h1>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Particles -->
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <span class="logo-icon" aria-hidden="true">⟁</span>
+            <span>Algori<span style="color: var(--accent-color)">X</span></span>
+        </a>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="toggle-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="toggle-icon fas fa-sun" aria-hidden="true"></i>
+                <i class="toggle-icon fas fa-moon" aria-hidden="true"></i>
+                <span class="toggle-thumb"></span>
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <!-- Team Member Modal -->
+    <div class="modal-overlay" id="team-modal">
+        <div class="team-modal">
+            <button class="close-modal" id="close-modal" aria-label="Close modal">&times;</button>
+            <div class="modal-img-container">
+                <img id="modal-img" src="" alt="Team member">
+            </div>
+            <div class="modal-content">
+                <h2 id="modal-name">Alex Chen</h2>
+                <h3 id="modal-title">Spatial Data Analyst</h3>
+                <p id="modal-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="modal-social">
+                    <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-shape" aria-hidden="true"></div>
+            <div class="hero-shape" aria-hidden="true"></div>
+            <div class="hero-content">
+                <h1>Frontier Tech Solutions for the Future</h1>
+                <p>AlgoriX brings cutting-edge technology to solve tomorrow's 
+                    problems today. Discover how our advanced solutions can transform your business.
+                </p>
+                <a href="#contact" class="cta-btn">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="section-title">
+                <h2>Our Advanced Features</h2>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🛰️</div>
+                    <h3>Quantum Computing</h3>
+                    <p>Harness the power of quantum algorithms to solve complex problems at unprecedented speeds, delivering insights and solutions previously thought impossible.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🌌</div>
+                    <h3>Spatial Analytics</h3>
+                    <p>Utilize advanced spatial analysis to gain insights from multidimensional data, enabling better decision making through visual pattern recognition.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🧬</div>
+                    <h3>Neural Networks</h3>
+                    <p>Our proprietary neural networks adapt and learn from your data, creating intelligent systems that improve over time for optimal performance.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🔭</div>
+                    <h3>Orbital Deployment</h3>
+                    <p>Deploy your solutions to our secure orbital platforms, ensuring constant connectivity and global reach with minimal latency.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">⚛️</div>
+                    <h3>Atomic Precision</h3>
+                    <p>Engineering at the atomic level gives our solutions unparalleled precision and efficiency in even the most challenging environments.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🚀</div>
+                    <h3>Rapid Scaling</h3>
+                    <p>Scale your solutions from prototype to full deployment in record time with our modular architecture and parallel processing capabilities.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section team-section">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+            </div>
+            <div class="team-grid">
+                <article class="team-card" data-member="Jhay">
+                    <div class="team-img">
+                        <img src="Jhay.jpg" alt="Portrait of Alex Chen" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h3>Samuel Tagoe</h3>
+                        <p>Founder and CEO
+                            <br>
+                            <span style="color: gray;">Software Engineer</span>
+                        </p>
+                        <div class="team-social">
+                            <a target="_blank" href="https://www.linkedin.com/in/samuel-tagoe-9116472b4/" class="social-icon" aria-label="Samuel's LinkedIn profile">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="https://x.com/999_Jhay" class="social-icon" aria-label="Samuel's Twitter profile">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="https://github.com/SinofPride-999" class="social-icon" aria-label="Samuel's GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="team-card" data-member="Chron">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80" alt="Portrait of Michael Rodriguez" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h3>Wicked Chron</h3>
+                        <p>Orbital Systems Engineer
+                            <br>
+                            <span style="color: gray;">Software Engineer</span>
+                        </p>
+                        <div class="team-social">
+                            <a target="_blank" href="#" class="social-icon" aria-label="Michael Rodriguez's LinkedIn profile">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="#" class="social-icon" aria-label="Michael Rodriguez's Twitter profile">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="https://github.com/thewickedchron" class="social-icon" aria-label="Michael Rodriguez's GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="team-card" data-member="Phenyl">
+                    <div class="team-img">
+                        <img src="phenyl.jpg" alt="Portrait of Dr. Sarah Johnson" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h3>Adisi Samuel</h3>
+                        <p>Co-Founder
+                            <br>
+                            <span style="color: gray;">Software Engineer</span>
+                        </p>
+                        <div class="team-social">
+                            <a target="_blank" href="https://www.linkedin.com/in/SamuelAdisi" class="social-icon" aria-label="Adisi's LinkedIn profile">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="#" class="social-icon" aria-label="Adisi's Twitter profile">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="https://github.com/SamuelAdisi" class="social-icon" aria-label="Adisi's GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="team-card" data-member="Zainab">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80" alt="Portrait of Priya Patel" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h3>Zainab Tagoe</h3>
+                        <p>Neural Networks Specialist
+                            <br>
+                            <span style="color: gray;">Software Engineer</span>
+                        </p>
+                        <div class="team-social">
+                            <a target="_blank" href="https://www.linkedin.com/in/zainab-tagoe-b962b1318/" class="social-icon" aria-label="Priya Patel's LinkedIn profile">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="#" class="social-icon" aria-label="Priya Patel's Twitter profile">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a target="_blank" href="https://github.com/ZainabTagoe" class="social-icon" aria-label="Priya Patel's GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>Have questions about tech solutions? Our team is ready to help you navigate the future of technology. Contact us today and discover how AlgoriX can transform your business.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>Remote Company based in Ghana, Accra City</p>
+                        </div> 
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p><a style="text-decoration: none;" href="mailto:contact@algorix.tech">contact@algorix.tech</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <p><a style="text-decoration: none;" href="tel:+18881234567">+1 (888) 123-4567</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form" action="" method="POST">
+                        <div class="form-group">
+                          <label for="name" class="visually-hidden">Your Name</label>
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="visually-hidden">Your Email</label>
+                          <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="subject" class="visually-hidden">Subject</label>
+                          <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                          <label for="message" class="visually-hidden">Your Message</label>
+                          <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-btn">Send Message</button>
+                    </form>                      
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <a href="#" class="footer-logo">
+                    <span>Algori<span style="color: var(--accent-color)">X</span></span>
+                </a>
+                <p class="footer-text">Pioneering the future with advanced space technology solutions that transform industries and push the boundaries of what's possible.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Solutions</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Quantum Computing</a></li>
+                    <li><a href="#">Spatial Analytics</a></li>
+                    <li><a href="#">Neural Networks</a></li>
+                    <li><a href="#">Orbital Deployment</a></li>
+                    <li><a href="#">Enterprise Solutions</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; <span id="current-year">2025</span> AlgoriX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
