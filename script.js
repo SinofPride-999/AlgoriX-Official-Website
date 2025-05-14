@@ -22,6 +22,18 @@ const teamMembers = {
         name: "Zainab Tagoe",
         title: "Neural Networks Specialist",
         bio: "Priya develops our proprietary neural network architectures that power our AI solutions. Her work in adaptive learning systems has been recognized with several industry awards. Priya holds a Master's in Computer Science from Carnegie Mellon and previously led AI research at Google DeepMind.",
+        img: "Zainab.jpg"
+    },
+    Mkvng: {
+        name: "Gideon Allotey",
+        title: "Neural Networks Specialist",
+        bio: "Priya develops our proprietary neural network architectures that power our AI solutions. Her work in adaptive learning systems has been recognized with several industry awards. Priya holds a Master's in Computer Science from Carnegie Mellon and previously led AI research at Google DeepMind.",
+        img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=800&q=80"
+    },
+    Slim: {
+        name: "Greg Worlanyo",
+        title: "Neural Networks Specialist",
+        bio: "Priya develops our proprietary neural network architectures that power our AI solutions. Her work in adaptive learning systems has been recognized with several industry awards. Priya holds a Master's in Computer Science from Carnegie Mellon and previously led AI research at Google DeepMind.",
         img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=800&q=80"
     }
 };
